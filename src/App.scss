@@ -1,0 +1,58 @@
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 400;
+  border-top: 6rem solid red;
+  background-color: black;
+  color:white;
+  padding-bottom: 0.3rem;
+}
+
+nav {
+  margin-top: 2rem;
+  display: flex;
+  font-size: 2rem;
+  gap: 1.2rem;
+  justify-content: center;
+
+  a {
+    border: 1px solid darkgray;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    &:hover {
+      box-shadow: inset -1px -1px 3px 2px #0000001f, 1px 1px 4px 2px #0000001f;
+    }
+  }
+  div {
+    position: relative;
+    input {
+      font-size: 1.05rem;
+      border: 1px solid darkgray;
+      border-radius: 0.5rem;
+      padding: 0.7rem;
+    }
+    span{
+      position: absolute;
+      top: 0.1rem;
+      right: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+main {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
