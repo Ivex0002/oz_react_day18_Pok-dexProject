@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { favoriteSlice } from "../RTK/slice";
+import monsterBall from "../assets/monsterBall.png"
 
 export function FavoriteButton({ pokemonId }) {
   const isFavorite = useSelector((state) =>
@@ -32,6 +33,7 @@ const FavoriteButtonStyle = styled.button`
   font-size: 1.4rem;
   transition: all 0.2s ease;
   text-align: center;
+  cursor: url(${monsterBall}) 16 16, auto;
 
   position: absolute;
   top: 1rem;

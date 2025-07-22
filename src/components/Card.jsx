@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FavoriteButton } from "./FavoriteButton";
+import { memo, useState } from "react";
 
 const CardContainer = styled.section`
   position: relative;
@@ -13,6 +14,13 @@ const CardContainer = styled.section`
   align-items: center;
   padding-bottom: 2rem;
   transition: all 0.2s ease;
+  overflow: hidden;
+
+  .loading {
+    width: 16rem;
+    height:16rem;
+    text-align: center;
+  }
 
   &:hover {
     cursor: pointer;
@@ -31,14 +39,21 @@ const CardContainer = styled.section`
   }
 `;
 
-export const Card = ({ pokeData }) => {
+export const Card = memo(({ pokeData }) => {
+  const [isImgLoading, setIsImgLoading] = useState(true);
   const navigate = useNavigate();
 
   return (
     <CardContainer onClick={() => navigate(`/detail/${pokeData.id}`)}>
+      {isImgLoading ? <div className="loading">로딩중...</div> : null}
       <FavoriteButton pokemonId={pokeData.id}></FavoriteButton>
-      <img src={pokeData.front_form} alt="pokemon_img" />
+      <img
+        src={pokeData.front_form}
+        alt="pokemon_img"
+        style={{display:isImgLoading ? "none" : "block"}}
+        onLoad={() => setIsImgLoading(false)}
+      />
       <div className="name">{pokeData.name}</div>
     </CardContainer>
   );
-};
+});
